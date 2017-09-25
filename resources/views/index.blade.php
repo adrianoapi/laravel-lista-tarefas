@@ -15,12 +15,21 @@
                     <th>Tarefa</th>
                     <th>Autor</th>
                     <th>Status</th>
+                    <th>Alterar</th>
                 </tr>
             </thead>
             <tr ng-repeat="tarefa in dadostarefas">
                 <td>@{{tarefa.texto}}</td>
                 <td>@{{tarefa.autor}}</td>
                 <td>@{{tarefa.status}}</td>
+                <td width="10%">
+                    <span ng-if="tarefa.status == 'Concluído'">
+                        <input type="button" value="Marcar como Pendente" class="btn btn-success" ng-click="mudarStatus(tarefa.id, 'Pendente')">
+                    </span>
+                    <span ng-if="tarefa.status != 'Concluído'">
+                        <input type="button" value="Marcar como Concluído" class="btn btn-warning" ng-click="mudarStatus(tarefa.id, 'Concluído')">
+                    </span>
+                </td>
             </tr>  
         </table>
 
