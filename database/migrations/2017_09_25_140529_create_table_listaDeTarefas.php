@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePasswordResetsTable extends Migration
+class CreateTableListaDeTarefas extends Migration
 {
 
     /**
@@ -15,10 +15,12 @@ class CreatePasswordResetsTable extends Migration
     public function up()
     {
         Schema::defaultStringLength(145);
-        Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('email', 145)->index();
-            $table->string('token')->index();
-            $table->timestamp('created_at')->nullable();
+        Schema::create('lista_tarefas', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('texto');
+            $table->string('autor');
+            $table->string('status');
+            $table->timestamps();
         });
     }
 
@@ -29,7 +31,7 @@ class CreatePasswordResetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('password_resets');
+        Schema::dropIfExists('lista_tarefas');
     }
 
 }

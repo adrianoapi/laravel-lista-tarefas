@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateUsersTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -13,10 +14,11 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        Schema::defaultStringLength(145);
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email', 145)->unique();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
@@ -32,4 +34,5 @@ class CreateUsersTable extends Migration
     {
         Schema::dropIfExists('users');
     }
+
 }
