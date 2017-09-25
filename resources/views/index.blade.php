@@ -21,9 +21,21 @@
                 <td>@{{tarefa.texto}}</td>
                 <td>@{{tarefa.autor}}</td>
                 <td>@{{tarefa.status}}</td>
-
             </tr>  
         </table>
+
+        <form ng-submit="adicionarTarefa()">
+            <label for="texto">Tarefa</label>
+            <input id="texto" type="text" ng-model="texto" required placeholder="Texto" class="form-control"/>
+            <label for="autor">Autor</label>
+            <input id="autor" type="text" ng-model="autor" required placeholder="Autor" class="form-control"/>
+            <label for="status">Status</label>
+            <select id="status" ng-model="status" required class="form-control">
+                <option value="Concluído">Concluído</option>
+                <option value="Pendente">Pendente</option>
+            </select>
+            <input type="submit" value="Cadastrar" class="btn btn-default"/>
+        </form>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
         <script src="js/app.js"></script>
     </body>

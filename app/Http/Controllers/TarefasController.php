@@ -14,4 +14,17 @@ class TarefasController extends Controller
         return Response()->json(ListaDeTarefas::orderBy('id', 'desc')->get(), 200);
     }
 
+    public function store(Request $request)
+    {
+        $tarefa = new listaDeTarefas();
+        $tarefa->texto = $request->input('texto');
+        $tarefa->autor = $request->input('autor');
+        $tarefa->status = $request->input('status');
+        if ($tarefa->save()) {
+            return Response("1", 201);
+        } else {
+            return Response("0", 304);
+        }
+    }
+
 }
