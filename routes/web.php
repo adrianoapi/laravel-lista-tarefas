@@ -12,7 +12,7 @@
  */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 Route::group(array('prefix' => 'api'), function() {
     Route::resource('tarefas', 'TarefasController');
