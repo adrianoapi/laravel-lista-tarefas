@@ -32,6 +32,17 @@
                 }
             });
         }
+        $scope.excluirTarefa = function (id) {
+            if (confirm("Confirma a exclusão da tarefa?")) {
+                var requisiacao = $http({method: "delete", url: "api/tarefas/" + id}).success(function (data, status) {
+                    if (data == 1 && status == 200) {
+                        $scope.loadData();
+                    } else {
+                        window.alert("Não foi possível excluir a tarefa!");
+                    }
+                });
+            }
+        }
     });
     //var tarefa = {'texto': 'Teste', 'autor': 'Eu mesmo', 'status': 'concluido'};
 })();

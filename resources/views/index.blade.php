@@ -12,6 +12,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th>X</th>
                     <th>Tarefa</th>
                     <th>Autor</th>
                     <th>Status</th>
@@ -19,6 +20,9 @@
                 </tr>
             </thead>
             <tr ng-repeat="tarefa in dadostarefas">
+                <td>
+                    <span ng-click="excluirTarefa(tarefa.id)" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </td>
                 <td>@{{tarefa.texto}}</td>
                 <td>@{{tarefa.autor}}</td>
                 <td>@{{tarefa.status}}</td>
