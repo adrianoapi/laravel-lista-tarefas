@@ -14,6 +14,6 @@
 Route::get('/', function () {
     return view('index');
 });
-Route::group(array('prefix' => 'api'), function() {
+Route::group(array('prefix' => 'api', 'middleware' => 'auth:api'), function() {
     Route::resource('tarefas', 'TarefasController');
 });
